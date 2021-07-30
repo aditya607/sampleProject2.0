@@ -1,0 +1,8 @@
+server:
+  type: default
+  applicationConnectors:
+    - type: http
+      port: 8833
+  adminConnectors:
+    - type: http
+      port: 9181
