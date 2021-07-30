@@ -8,7 +8,8 @@ Hi there , we are goiing to create a project of dropwizard.
 - then you create a AppConfig class (that extends Configuration class of dropwizard)
 - then You create a MainApplication class (that extends Application<AppConfig> of dropwizard)
    - you need to add a main method (psvm) and a run method (that is called from main method)
-_you basic dropwizard project is ready (you can run MainApplication class and build , it will work fine)_
+   
+# you basic dropwizard project is ready (you can run MainApplication class and build , it will work fine)
 
 **step3:** (making your project as Application, so that it runs as an application)
 - adding a config.yml or config.yaml file ( for ports on which our application runs)
@@ -16,4 +17,13 @@ _you basic dropwizard project is ready (you can run MainApplication class and bu
 - then app application plugin in gradle build (id 'application')
 - define main class in gradle build (setMainClassName("MainApplication") in application task) - (or will give error main class not defined)
 - then you need to add run args (args = ['server', 'config.yaml'] in run task)- (or application will not start completely as you have not provided the port)
-your project is ready and you can run it as application on the port you configured in config.yml file 
+
+# your project is ready and you can run it as application on the port you configured in config.yml file 
+
+**step4:** (we will add a resource class in our application and a get method)
+- adding lombok dependency in project (for getter and setter method) - (ignore if you want , create getter and setter manually)
+- then you create an object(eg- person) class and a resource class (eg -PersonResource) with endPoint provided.
+- register that resource class in environment jersery (in run method of MainApplication class).
+- run the application and test the endpoint , it should be working.
+
+# Now your project is an application running with a endpoint on particular port , which you can hit

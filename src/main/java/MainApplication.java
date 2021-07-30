@@ -1,5 +1,7 @@
+import Resource.PersonResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Environment;
+import org.glassfish.jersey.client.JerseyClient;
 
 public class MainApplication extends Application<AppConfig> {
 
@@ -9,5 +11,7 @@ public class MainApplication extends Application<AppConfig> {
     }
     @Override
     public void run(AppConfig configuration, Environment environment) throws Exception {
+        PersonResource personResource = new PersonResource();
+        environment.jersey().register(personResource);
     }
 }
