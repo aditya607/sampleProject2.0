@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application'
+    id 'com.github.johnrengelman.shadow' version '6.0.0'
 }
 
 group 'org.example'
@@ -24,4 +25,11 @@ application{
 
 run{
     args = ['server', 'config.yaml']
+}
+
+shadowJar{
+    archiveBaseName = 'raja'
+    mergeServiceFiles()
+    exclude 'META-INF/*.DSA'
+    exclude 'META-INF/*.RSA'
 }
