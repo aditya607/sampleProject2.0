@@ -12,7 +12,7 @@ public class PersonResource {
     @Path("raja")
     @Produces(MediaType.APPLICATION_JSON)
     public Person getRaja(){
-        Person person = new Person("raja",21,"hajipur");
+        Person person = new Person("raja",55,"hajipur");
         return person;
     }
 

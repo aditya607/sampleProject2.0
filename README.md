@@ -28,7 +28,7 @@ _**your project is ready and you can run it as application on the port you confi
 
 _**Now your project is an application running with a endpoint on particular port , which you can hit**_
 
-### step5: (optional (if you want you can create a shadow jar of your application))
+### **step5:** (optional (if you want you can create a shadow jar of your application))
 - add shadow jar plugin (id 'com.github.johnrengelman.shadow' version '6.0.0') 
 - override task shadowJar  with 
     archiveBaseName = 'raja'
@@ -41,10 +41,17 @@ _**Now your project is an application running with a endpoint on particular port
 _**Now you have application jar , which you can run anywhere (with basic system setup)**_
 
 == required docker on your system
-### step6: (we need to create a image of your application , so it can run at any place)
+### **step6:** (we need to create a image of your application , so it can run at any place)
 - first of all create a File name "Dockerfile" , then copy jar , config and provide a run CMD 
 - expose the port you want to access from your localhost.
 - docker build -t imageName:version . (run this command , where your Dockerfile is present), after this you can see a new image in docke(do docker images)
 - for running docker run -p localport:containerPort imageID
 
 _**Now you have image of your running application , which you can run any where**_
+
+### step7: (creating a docker compose , as we will not want other application required by our code to run manualy , eg- DB and other stuff)
+- first of all create a File named - "docker-compose.yml" and mention the services required there. 
+- can include redis DB , and web - for including your application image
+
+_**Now you have application running using docker-compose , so that you do not need to create other images manually , except the application image._**
+
