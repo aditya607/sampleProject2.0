@@ -1,9 +1,9 @@
 version: '3'
 services:
-  redis:
-    image: "redis:alpine"
+  mongodb:
+    image: mongo:3.5
     ports:
-      - 6379:6379
+      - 27017:27017
 
   web:
     build: .

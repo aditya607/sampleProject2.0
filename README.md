@@ -52,6 +52,8 @@ _**Now you have image of your running application , which you can run any where*
 ### step7: (creating a docker compose , as we will not want other application required by our code to run manualy , eg- DB and other stuff)
 - first of all create a File named - "docker-compose.yml" and mention the services required there. 
 - can include redis DB , and web - for including your application image
+- keep in mind (you have to remove the already created image in previous docker-compose up )
 
 _**Now you have application running using docker-compose , so that you do not need to create other images manually , except the application image._**
 
+### step8:
