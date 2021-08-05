@@ -1,11 +1,13 @@
 version: '3'
 services:
   mongodb:
-    image: mongo:3.5
+    image: mongo:latest
     ports:
       - 27017:27017
 
   web:
-    build: .
+    image: sample2:7
     ports:
       - 8833:8833
+    depends_on:
+      - mongodb
