@@ -56,4 +56,45 @@ _**Now you have image of your running application , which you can run any where*
 
 _**Now you have application running using docker-compose , so that you do not need to create other images manually , except the application image._**
 
-### step8:
+### **step8:** adding mongo db in docker-compose and mongodriver in code
+- mention the images in the docker compose , like - the one created by building applicaiton and one for DB (taking mongo here)
+- add dependency of mongo driver in gradle . (while creating mongo client , localhost was not working with docker compose , so I have to use my ip address)
+- make the coding changes for that.
+
+docker-compose
+version: '3'
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+
+  web:
+    image: sample2:7
+    ports:
+      - 8833:8833
+    depends_on:
+      - mongodb
+
+
+_**Now you have a code for running applicaiton with database mongo DB (but DB is not persistant till now)**_
+
+### **step9:** making the volume persistant
+- we have to add volume in docker compose file (in service section)
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - mongoData:/var/backups
+- if you want to store the data on host , then make a directory by name mongoData(or any name), and provide that in above volume section.
+- if you want to store it in Container only , then you need to add volume outside service. like -
+volumes:
+  mongoData:
+  
+  _**Now you have application in docker with mongoDB and with persistent volume**_
+  
+  
+###  step10:
+

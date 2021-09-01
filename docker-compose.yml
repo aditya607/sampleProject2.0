@@ -4,6 +4,8 @@ services:
     image: mongo:latest
     ports:
       - 27017:27017
+    volumes:
+      - mongoData:/var/backups
 
   web:
     image: sample2:7
@@ -11,3 +13,6 @@ services:
       - 8833:8833
     depends_on:
       - mongodb
+
+volumes:
+  mongoData:
